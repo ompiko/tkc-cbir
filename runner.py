@@ -43,7 +43,7 @@ def home():
 	rekal = round(((tp/(fn+tp))*100),2)
 	f1 = round((2*(rekal*presisi)/(rekal+presisi)),2)
 
-	datasets = os.listdir('static/coba')
+	datasets = os.listdir('static/training_files_cleaned')
 	if os.path.exists('static/temp') == True :
 		image_names = os.listdir('static/temp')
 		nearest = sorted(os.listdir('static/temp'))[0]
@@ -85,7 +85,7 @@ def search():
 	i = 1
 	for (score, resultID) in results:
 		i += 1
-		result = cv2.imread("static/coba/" + resultID)
+		result = cv2.imread("static/training_files_cleaned/" + resultID)
 		saveimg = cv2.imwrite("static/temp/" + str(score) + str(i) + ".jpeg", result)
 
 	imgstr = time.strftime("%Y%m%d-%H%M%S")
